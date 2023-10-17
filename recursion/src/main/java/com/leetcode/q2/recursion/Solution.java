@@ -1,4 +1,4 @@
-package com.leetcode.q21.recursion;
+package com.leetcode.q2.recursion;
 
 
 class Solution {
