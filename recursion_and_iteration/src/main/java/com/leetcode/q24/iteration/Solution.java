@@ -2,17 +2,15 @@ package com.leetcode.q24.iteration;
 
 class Solution {
     public ListNode swapPairs(ListNode head) {
-        ListNode dummy = new ListNode(-1), pre = dummy;
-        while (head != null && head.next != null) {
-            ListNode left = head, right = head.next;
+        ListNode dummy = new ListNode(-1, head), pre = dummy;
+        ListNode left, right;
+        while ((left = pre.next) != null && (right = left.next) != null) {
             pre.next = right;
             left.next = right.next;
             right.next = left;
 
             pre = left;
-            head = left.next;
         }
-        pre.next = head;
         return dummy.next;
     }
 }
