@@ -1,4 +1,4 @@
-package com.leetcode.q234;
+package com.leetcode.q234.iteration;
 
 class Solution {
     public boolean isPalindrome(ListNode head) {
