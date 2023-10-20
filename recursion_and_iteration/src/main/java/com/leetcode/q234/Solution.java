@@ -47,13 +47,3 @@ class ListNode {
         this.next = next;
     }
 }
-
-class Test {
-    public static void main(String[] args) {
-        var tail = new ListNode(1, null);
-        var node0 = new ListNode(0, tail);
-        var head = new ListNode(1, node0);
-
-        System.out.println(new Solution().isPalindrome(head));
-    }
-}
