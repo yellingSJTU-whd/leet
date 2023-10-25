@@ -5,20 +5,19 @@ class Solution {
         if (k == 0) {
             return 0;
         }
-        int[] present = new int[128];
-        int count = 0, ans = 0, l = 0, r = 0;
-        char[] chs = s.toCharArray();
-        while (r < chs.length) {
-            if (present[chs[r++]]++ == 0) {
-                count++;
+        int[] freq = new int[128];
+        int cardinality = 0, res = 0, l = 0, r = 0;
+        while (r < s.length()) {
+            if (freq[s.charAt(r++)]++ == 0) {
+                cardinality++;
             }
-            while (count > k) {
-                if (--present[chs[l++]] == 0) {
-                    count--;
+            while (cardinality > k) {
+                if (--freq[s.charAt(l++)] == 0) {
+                    cardinality--;
                 }
             }
-            ans = Math.max(ans, r - l);
+            res = Math.max(res, r - l);
         }
-        return ans;
+        return res;
     }
 }
