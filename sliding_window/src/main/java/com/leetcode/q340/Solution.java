@@ -1,8 +1,5 @@
 package com.leetcode.q340;
 
-import java.util.HashMap;
-import java.util.Map;
-
 class Solution {
     public int lengthOfLongestSubstringKDistinct(String s, int k) {
         if (k == 0) {
@@ -15,14 +12,12 @@ class Solution {
             if (present[chs[r++]]++ == 0) {
                 count++;
             }
-            if (count <= k) {
-                ans = Math.max(ans, r - l);
-            }
             while (count > k) {
                 if (--present[chs[l++]] == 0) {
                     count--;
                 }
             }
+            ans = Math.max(ans, r - l);
         }
         return ans;
     }
