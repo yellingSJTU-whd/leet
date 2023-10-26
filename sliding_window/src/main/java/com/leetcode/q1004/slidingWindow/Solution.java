@@ -1,4 +1,4 @@
-package com.leetcode.q1004;
+package com.leetcode.q1004.slidingWindow;
 
 class Solution {
     public int longestOnes(int[] nums, int k) {
