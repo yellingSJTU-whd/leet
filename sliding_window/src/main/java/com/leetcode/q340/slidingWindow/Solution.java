@@ -1,4 +1,4 @@
-package com.leetcode.q340;
+package com.leetcode.q340.slidingWindow;
 
 class Solution {
     public int lengthOfLongestSubstringKDistinct(String s, int k) {
