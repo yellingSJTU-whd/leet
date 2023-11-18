@@ -11,7 +11,8 @@
     <modules>
         <module>recursion_and_iteration</module>
         <module>string_manipulation</module>
-        <module>sliding_window</module>
+        <module>sliding_window_and_double_pointers</module>
+        <module>dynamic_programming</module>
     </modules>
 
     <properties>

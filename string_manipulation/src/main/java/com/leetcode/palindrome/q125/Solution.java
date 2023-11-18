@@ -11,14 +11,14 @@ class Solution {
 
             if ('A' <= ch0 && ch0 <= 'Z') {
                 ch0 += 32;
-            } else if (!('0' <= ch0 && ch0 <= '9' || ('a' <= ch0 && ch0 <= 'z'))) {
+            } else if (!('0' <= ch0 && ch0 <= '9' || 'a' <= ch0 && ch0 <= 'z')) {
                 left++;
                 continue;
             }
 
             if ('A' <= ch1 && ch1 <= 'Z') {
                 ch1 += 32;
-            } else if (!('0' <= ch1 && ch1 <= '9' || ('a' <= ch1 && ch1 <= 'z'))) {
+            } else if (!('0' <= ch1 && ch1 <= '9' || 'a' <= ch1 && ch1 <= 'z')) {
                 right--;
                 continue;
             }
