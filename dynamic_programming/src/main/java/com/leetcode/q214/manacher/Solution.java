@@ -1,21 +1,26 @@
-package com.leetcode.q5.manacher;
+package com.leetcode.q214.manacher;
 
 import java.util.Arrays;
 
 class Solution {
-    public String longestPalindrome(String str) {
+    public String shortestPalindrome(String str) {
         var radii = manacher(str);
-        int idx = 0, maxLen = 0, n = radii.length;
-        for (var i = 0; i < n; i++) {
-            if (radii[i] > maxLen) {
+        int idx = 0, n = radii.length;
+        for (var i = (n - 1) / 2; i > 0; i--) {
+            if (i == radii[i]) {
                 idx = i;
-                maxLen = radii[i];
+                break;
             }
         }
-        if ((idx - maxLen) % 2 == 0) {
-            return str.substring((idx - maxLen) / 2, (idx + maxLen) / 2);
+        if (2 * idx == n - 1) {
+            return str;
         }
-        return str.substring((idx - maxLen - 1) / 2, (idx + maxLen - 1) / 2 + 1);
+
+        var builder = new StringBuilder();
+        for (int i = str.length() - 1; i > (2 * idx - 1) / 2; i--) {
+            builder.append(str.charAt(i));
+        }
+        return builder + str;
     }
 
     private static char[] padding(String str) {
@@ -49,11 +54,11 @@ class Solution {
         var s = padding(str);
         int center = 0, maxRight = 0, n = s.length;
         var radii = new int[n];
-        for (var i = 1; i < n - 1; i++) {
+        for (int i = 1; i < n - 1; i++) {
             if (maxRight > i) {
                 var mirrorRadius = radii[2 * center - i];
                 var delta = maxRight - i;
-                if (mirrorRadius < delta) {
+                if (delta > mirrorRadius) {
                     radii[i] = mirrorRadius;
                 } else {
                     radii[i] = centralExpand(s, i, delta);
