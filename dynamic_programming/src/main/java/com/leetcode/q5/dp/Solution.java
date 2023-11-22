@@ -1,4 +1,4 @@
-package com.leetcode.q5;
+package com.leetcode.q5.dp;
 
 class Solution {
     public String longestPalindrome(String str) {
