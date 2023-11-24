@@ -13,6 +13,7 @@
         <module>string_manipulation</module>
         <module>sliding_window_and_double_pointers</module>
         <module>dynamic_programming</module>
+        <module>greedy</module>
     </modules>
 
     <properties>
