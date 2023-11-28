@@ -14,6 +14,7 @@
         <module>sliding_window_and_double_pointers</module>
         <module>dynamic_programming</module>
         <module>greedy</module>
+        <module>backtrack</module>
     </modules>
 
     <properties>
