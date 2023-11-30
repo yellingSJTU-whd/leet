@@ -1,7 +1,5 @@
 package com.leetcode.q213;
 
-import java.util.Arrays;
-
 class Solution {
     public int rob(int[] nums) {
         var n = nums.length;
