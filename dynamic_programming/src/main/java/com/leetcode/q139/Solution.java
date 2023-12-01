@@ -3,9 +3,8 @@ package com.leetcode.q139;
 import java.util.List;
 
 class Solution {
-    public boolean wordBreak(String str, List<String> wordDict) {
-        var s = str.toCharArray();
-        var n = s.length;
+    public boolean wordBreak(String s, List<String> wordDict) {
+        var n = s.length();
         var dp = new boolean[n + 1];
         dp[0] = true;
 
@@ -14,7 +13,7 @@ class Solution {
                 continue;
             }
             for (var word : wordDict) {
-                if (word.length() + i <= n && str.startsWith(word, i)) {
+                if (word.length() + i <= n && s.startsWith(word, i)) {
                     dp[i + word.length()] = true;
                 }
             }
