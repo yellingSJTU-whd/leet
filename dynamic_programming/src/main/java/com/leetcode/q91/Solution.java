@@ -12,9 +12,8 @@ class Solution {
                 continue;
             }
             dp[i] = dp[i + 1];
-            if (i <= n - 2) {
-                var decimal = (s[i] - '0') * 10 + s[i + 1] - '0';
-                if (decimal <= 26) {
+            if (i < n - 1) {
+                if ((s[i] - '0') * 10 + s[i + 1] - '0' <= 26) {
                     dp[i] += dp[i + 2];
                 }
             }
