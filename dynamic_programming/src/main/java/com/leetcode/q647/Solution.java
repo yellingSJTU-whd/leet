@@ -1,19 +1,16 @@
-package com.leetcode.q5.manacher;
+package com.leetcode.q647;
 
 class Solution {
-    public String longestPalindrome(String str) {
-        var radii = manacher(str);
-        int pivot = 0, maxRadius = 0, n = radii.length;
-        for (var i = 0; i < n; i++) {
-            if (radii[i] > maxRadius) {
-                pivot = i;
-                maxRadius = radii[i];
-            }
+    public int countSubstrings(String s) {
+        var radii = manacher(s);
+        var res = 0;
+        for (var radius : radii) {
+            res += (radius + 1) / 2;
         }
-        return str.substring((pivot - maxRadius) / 2, (pivot + maxRadius) / 2);
+        return res;
     }
 
-    private static char[] padding(String s) {
+    private char[] padding(String s) {
         if (s == null || s.isEmpty()) return new char[0];
 
         var n = s.length();
@@ -28,30 +25,32 @@ class Solution {
         return padded;
     }
 
-    private static int centralExpand(char[] s, int pivot, int skip) {
-        if (pivot <= 0 || pivot >= s.length - 1) return 0;
+    private int centralExpand(char[] s, int pivot, int skip) {
+        if (pivot < 0 || pivot >= s.length) return 0;
         if (skip < 0) throw new IllegalArgumentException();
 
+        var n = s.length;
         int l = pivot - skip - 1, r = pivot + skip + 1, radius = skip;
-        while (l >= 0 && r < s.length) {
+        while (l >= 0 && r < n) {
             if (s[l--] != s[r++]) break;
             radius++;
         }
         return radius;
     }
 
-    private static int[] manacher(String str) {
+    private int[] manacher(String str) {
         var s = padding(str);
-        int pivot = 0, maxRight = 0, n = s.length;
+        var n = s.length;
         var radii = new int[n];
+        int pivot = -1, maxRight = -1;
 
         for (var i = 1; i < n - 1; i++) {
-            if (maxRight <= i) {
+            if (i >= maxRight) {
                 radii[i] = centralExpand(s, i, 0);
             } else {
                 var mirrorRadius = radii[2 * pivot - i];
                 var delta = maxRight - i;
-                radii[i] = mirrorRadius < delta ? mirrorRadius : centralExpand(s, i, delta);
+                radii[i] = delta > mirrorRadius ? mirrorRadius : centralExpand(s, i, delta);
             }
 
             if (i + radii[i] > maxRight) {

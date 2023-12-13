@@ -6,19 +6,18 @@ class Solution {
             return head;
         }
 
-        ListNode dummy = new ListNode(-1, head), ptr = dummy;
-        for (int i = 0; i < left - 1; i++) {
-            ptr = ptr.next;
+        ListNode dummy = new ListNode(-1, head), guard = dummy, curr = dummy.next;
+        for (var i = 0; i < left - 1; i++) {
+            guard = guard.next;
+            curr = curr.next;
         }
-        ListNode pre = null, curr = ptr.next;
-        for (int i = 0; i < right - left + 1; i++) {
-            ListNode next = curr.next;
-            curr.next = pre;
-            pre = curr;
-            curr = next;
+
+        for (var i = 0; i < right - left; i++) {
+            var moving = curr.next;
+            curr.next = moving.next;
+            moving.next = guard.next;
+            guard.next = moving;
         }
-        ptr.next.next = curr;
-        ptr.next = pre;
         return dummy.next;
     }
 }
