@@ -1,5 +1,7 @@
 package com.leetcode.q234.hash;
 
+import com.leetcode.ListNode;
+
 class Solution {
     public boolean isPalindrome(ListNode head) {
         long seed = (long) 1e9 + 7;
@@ -14,19 +16,3 @@ class Solution {
     }
 }
 
-class ListNode {
-    int val;
-    ListNode next;
-
-    ListNode() {
-    }
-
-    ListNode(int val) {
-        this.val = val;
-    }
-
-    ListNode(int val, ListNode next) {
-        this.val = val;
-        this.next = next;
-    }
-}

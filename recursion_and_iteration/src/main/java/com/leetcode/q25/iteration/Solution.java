@@ -1,5 +1,7 @@
 package com.leetcode.q25.iteration;
 
+import com.leetcode.ListNode;
+
 class Solution {
     public ListNode reverseKGroup(ListNode head, int k) {
         if (head == null || head.next == null || k == 1) {
@@ -41,23 +43,6 @@ class Solution {
             pre = curr;
             curr = next;
         }
-    }
-}
-
-class ListNode {
-    int val;
-    ListNode next;
-
-    ListNode() {
-    }
-
-    ListNode(int val) {
-        this.val = val;
-    }
-
-    ListNode(int val, ListNode next) {
-        this.val = val;
-        this.next = next;
     }
 }
 

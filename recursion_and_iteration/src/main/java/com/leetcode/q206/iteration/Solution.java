@@ -1,5 +1,7 @@
 package com.leetcode.q206.iteration;
 
+import com.leetcode.ListNode;
+
 class Solution {
     public ListNode reverseList(ListNode head) {
         ListNode pre = null;
@@ -14,19 +16,3 @@ class Solution {
     }
 }
 
-class ListNode {
-    int val;
-    ListNode next;
-
-    ListNode() {
-    }
-
-    ListNode(int val) {
-        this.val = val;
-    }
-
-    ListNode(int val, ListNode next) {
-        this.val = val;
-        this.next = next;
-    }
-}
